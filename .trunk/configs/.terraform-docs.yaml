@@ -1,0 +1,33 @@
+formatter: markdown table
+
+content: |-
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Modules }}
+
+  {{ .Resources }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
+  {{ .Footer }}
+
+output:
+  file: README.md
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    <!-- prettier-ignore-start -->
+
+    {{ .Content }}
+
+    <!-- prettier-ignore-end -->
+    <!-- END_TF_DOCS -->
+
+settings:
+  anchor: false
+  escape: false
+  html: false
+  lockfile: false
