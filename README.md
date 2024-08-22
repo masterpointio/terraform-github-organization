@@ -47,9 +47,6 @@ No modules.
 | random_pet_name | The generated random pet name |
 
 
-<!-- prettier-ignore-end -->
-<!-- END_TF_DOCS -->
-
 ## Contributing
 
 Contributions are welcome and appreciated!
@@ -63,3 +60,6 @@ If you have any issues or are waiting a long time for a PR to get merged then fe
 ## Built By
 
 [![Masterpoint Logo](https://i.imgur.com/RDLnuQO.png)](https://masterpoint.io)
+
+<!-- prettier-ignore-end -->
+<!-- END_TF_DOCS -->
