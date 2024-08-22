@@ -26,24 +26,44 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [github_actions_organization_permissions.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_permissions) | resource |
+| [github_organization_settings.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/organization_settings) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| allows_public_repositories | Whether public repositories can be added to the runner group | `bool` | `null` | no |
-| name | Name of the runner group | `string` | n/a | yes |
-| restricted_to_workflows | If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false. | `bool` | `null` | no |
-| selected_repository_ids | IDs of the repositories which should be added to the runner group | `list(string)` | `[]` | no |
-| selected_workflows | List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true. | `list(string)` | `[]` | no |
-| visibility | Visibility of a runner group. Whether the runner group can include all, selected, or private repositories. A value of private is not currently supported due to limitations in the GitHub API. | `string` | `null` | no |
+| advanced_security_enabled_for_new_repositories | Whether or not advanced security is enabled for new repositories. Defaults to false. | `bool` | `null` | no |
+| billing_email | The billing email address for the organization. | `string` | n/a | yes |
+| blog | The blog URL for the organization. | `string` | `null` | no |
+| company | The company name for the organization. | `string` | `null` | no |
+| default_repository_permission | The default permission for organization members to create new repositories. Can be one of read, write, admin, or none. Defaults to read. | `string` | `null` | no |
+| dependabot_alerts_enabled_for_new_repositories | Whether or not dependabot alerts are enabled for new repositories. Defaults to false. | `bool` | `null` | no |
+| dependabot_security_updates_enabled_for_new_repositories | Whether or not dependabot security updates are enabled for new repositories. Defaults to false. | `bool` | `null` | no |
+| dependency_graph_enabled_for_new_repositories | Whether or not dependency graph is enabled for new repositories. Defaults to false. | `bool` | `null` | no |
+| description | The description for the organization. | `string` | `null` | no |
+| email | The email address for the organization. | `string` | `null` | no |
+| has_organization_projects | Whether or not organization projects are enabled for the organization. | `bool` | `null` | no |
+| has_repository_projects | Whether or not repository projects are enabled for the organization. | `bool` | `null` | no |
+| location | The location for the organization. | `string` | `null` | no |
+| members_can_create_internal_repositories | Whether or not organization members can create new internal repositories. For Enterprise Organizations only. | `bool` | `null` | no |
+| members_can_create_pages | Whether or not organization members can create new pages. Defaults to true. | `bool` | `null` | no |
+| members_can_create_private_pages | Whether or not organization members can create new private pages. Defaults to true. | `bool` | `null` | no |
+| members_can_create_private_repositories | Whether or not organization members can create new private repositories. Defaults to true. | `bool` | `null` | no |
+| members_can_create_public_pages | Whether or not organization members can create new public pages. Defaults to true. | `bool` | `null` | no |
+| members_can_create_public_repositories | Whether or not organization members can create new public repositories. Defaults to true. | `bool` | `null` | no |
+| members_can_create_repositories | Whether or not organization members can create new repositories. Defaults to true. | `bool` | `null` | no |
+| members_can_fork_private_repositories | Whether or not organization members can fork private repositories. Defaults to false. | `bool` | `null` | no |
+| name | The name for the organization. | `string` | `null` | no |
+| secret_scanning_enabled_for_new_repositories | Whether or not secret scanning is enabled for new repositories. Defaults to false. | `bool` | `null` | no |
+| secret_scanning_push_protection_enabled_for_new_repositories | Whether or not secret scanning push protection is enabled for new repositories. Defaults to false. | `bool` | `null` | no |
+| twitter_username | The Twitter username for the organization. | `string` | `null` | no |
+| web_commit_signoff_required | Whether or not commit signatures are required for commits to the organization. Defaults to false. | `bool` | `null` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| test | test |
+| id | The ID of the organization settings. |
 
 
 ## Contributing
