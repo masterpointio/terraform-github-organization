@@ -1,3 +1,7 @@
+# github_actions_runner_group
+
+This module manages a GitHub Actions runner group, which is a collection of runners that can be used to run workflows in GitHub Actions.
+
 <!-- BEGIN_TF_DOCS -->
 <!-- prettier-ignore-start -->
 
