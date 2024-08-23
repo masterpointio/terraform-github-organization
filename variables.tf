@@ -185,9 +185,12 @@ variable "selected_workflows" {
 }
 
 variable "visibility" {
-  description = "Visibility of a runner group. Whether the runner group can include all, selected, or private repositories. A value of private is not currently supported due to limitations in the GitHub API."
+  description = "Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of private is not currently supported due to limitations in the GitHub API."
   type        = string
-  default     = null
+  validation {
+    condition     = can(regex("^(all|selected|private)$", var.visibility))
+    error_message = "visibility must be one of 'all' 'selected' or 'private'"
+  }
 }
 
 variable "allows_public_repositories" {
