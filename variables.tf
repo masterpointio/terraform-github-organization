@@ -198,3 +198,44 @@ variable "allows_public_repositories" {
   type        = bool
   default     = null
 }
+
+#################
+# Blocked users #
+#################
+
+variable "blocked_usernames" {
+  type        = list(string)
+  description = "A list of usernames to block from your GitHub organization."
+  default     = []
+}
+
+#########################
+# Actions runner groups #
+#########################
+
+variable "actions_runner_groups" {
+  type = map(object({
+    restricted_to_workflows    = optional(list(string))
+    selected_repository_ids    = optional(list(string))
+    selected_workflows         = optional(list(string))
+    visibility                 = optional(string)
+    allows_public_repositories = optional(bool)
+  }))
+  description = "A map of actions runner groups to create in your GitHub organization. Map key is the name of the runner group."
+  default     = {}
+}
+
+################################
+# Organization actions secrets #
+################################
+
+variable "organization_secrets" {
+  description = "A map of organization secrets to create. The map key is the secret name."
+  type = map(object({
+    encrypted_value         = optional(string)
+    plaintext_value         = optional(string)
+    visibility              = string
+    selected_repository_ids = optional(list(string))
+  }))
+  default = {}
+}

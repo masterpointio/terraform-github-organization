@@ -26,3 +26,13 @@ resource "github_organization_settings" "this" {
   secret_scanning_enabled_for_new_repositories                 = var.secret_scanning_enabled_for_new_repositories
   secret_scanning_push_protection_enabled_for_new_repositories = var.secret_scanning_push_protection_enabled_for_new_repositories
 }
+
+resource "github_actions_organization_oidc_subject_claim_customization_template" "this" {
+  include_claim_keys = var.oidc_subject_include_claim_keys
+}
+
+variable "oidc_subject_include_claim_keys" {
+  type        = list(string)
+  description = "A list of claim keys to include in the OIDC subject claim customization template."
+  default     = null
+}
