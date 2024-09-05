@@ -26,7 +26,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [github_organization_oidc_subject_claim_customization_template.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/organization_oidc_subject_claim_customization_template) | resource |
+| [github_actions_organization_oidc_subject_claim_customization_template.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_oidc_subject_claim_customization_template) | resource |
 | [github_organization_settings.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/organization_settings) | resource |
 
 ## Inputs
