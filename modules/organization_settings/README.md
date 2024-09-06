@@ -26,6 +26,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [github_actions_organization_oidc_subject_claim_customization_template.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_oidc_subject_claim_customization_template) | resource |
 | [github_organization_settings.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/organization_settings) | resource |
 
 ## Inputs
@@ -54,6 +55,7 @@ No modules.
 | members_can_create_repositories | Whether or not organization members can create new repositories. Defaults to true. | `bool` | `null` | no |
 | members_can_fork_private_repositories | Whether or not organization members can fork private repositories. Defaults to false. | `bool` | `null` | no |
 | name | The name for the organization. | `string` | `null` | no |
+| oidc_subject_include_claim_keys | A list of claim keys to include in the OIDC subject claim customization template. | `list(string)` | `null` | no |
 | secret_scanning_enabled_for_new_repositories | Whether or not secret scanning is enabled for new repositories. Defaults to false. | `bool` | `null` | no |
 | secret_scanning_push_protection_enabled_for_new_repositories | Whether or not secret scanning push protection is enabled for new repositories. Defaults to false. | `bool` | `null` | no |
 | twitter_username | The Twitter username for the organization. | `string` | `null` | no |

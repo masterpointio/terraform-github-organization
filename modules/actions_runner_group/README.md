@@ -35,9 +35,9 @@ No modules.
 | allows_public_repositories | Whether public repositories can be added to the runner group | `bool` | `null` | no |
 | name | Name of the runner group | `string` | n/a | yes |
 | restricted_to_workflows | If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false. | `bool` | `null` | no |
-| selected_repository_ids | IDs of the repositories which should be added to the runner group | `list(string)` | `[]` | no |
-| selected_workflows | List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true. | `list(string)` | `[]` | no |
-| visibility | Visibility of a runner group. Whether the runner group can include all, selected, or private repositories. A value of private is not currently supported due to limitations in the GitHub API. | `string` | `null` | no |
+| selected_repository_ids | IDs of the repositories which should be added to the runner group | `list(string)` | `null` | no |
+| selected_workflows | List of workflows the runner group should be allowed to run. This setting will be ignored unless restricted_to_workflows is set to true. | `list(string)` | `null` | no |
+| visibility | Visibility of a runner group. Whether the runner group can include `all`, `selected`, or `private` repositories. A value of private is not currently supported due to limitations in the GitHub API. | `string` | `null` | no |
 
 ## Outputs
 
