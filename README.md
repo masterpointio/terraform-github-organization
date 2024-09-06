@@ -26,7 +26,11 @@ No providers.
 | Name | Source | Version |
 |------|--------|---------|
 | actions_runner_group | ./modules/actions_runner_group | n/a |
+| organization_block | ./modules/organization_block | n/a |
+| organization_ruleset | ./modules/organization_ruleset | n/a |
+| organization_secret | ./modules/actions_organization_secret | n/a |
 | organization_settings | ./modules/organization_settings | n/a |
+| organization_variable | ./modules/actions_organization_variable | n/a |
 
 ## Resources
 
@@ -36,9 +40,11 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| actions_runner_groups | A map of actions runner groups to create in your GitHub organization. Map key is the name of the runner group. | ```map(object({ restricted_to_workflows = optional(list(string)) selected_repository_ids = optional(list(string)) selected_workflows = optional(list(string)) visibility = optional(string) allows_public_repositories = optional(bool) }))``` | `{}` | no |
 | advanced_security_enabled_for_new_repositories | Whether or not advanced security is enabled for new repositories. Defaults to false. | `bool` | `null` | no |
 | allows_public_repositories | Whether public repositories can be added to the runner group | `bool` | `null` | no |
 | billing_email | The billing email address for the organization. | `string` | n/a | yes |
+| blocked_usernames | A list of usernames to block from your GitHub organization. | `list(string)` | `[]` | no |
 | blog | The blog URL for the organization. | `string` | `null` | no |
 | company | The company name for the organization. | `string` | `null` | no |
 | default_repository_permission | The default permission for organization members to create new repositories. Can be one of read, write, admin, or none. Defaults to read. | `string` | `null` | no |
@@ -59,6 +65,9 @@ No resources.
 | members_can_create_repositories | Whether or not organization members can create new repositories. Defaults to true. | `bool` | `null` | no |
 | members_can_fork_private_repositories | Whether or not organization members can fork private repositories. Defaults to false. | `bool` | `null` | no |
 | organization_name | The name for the organization. | `string` | `null` | no |
+| organization_rulesets | A map of organization rulesets to create. The map key is the name of the ruleset. | ```map(object({ enforcement = string rules = list(object({ # Enterprise only! Use `conditions` block for matching branches. branch_name_pattern = optional(list(object({ operator = string pattern = string name = optional(string) negate = optional(bool) })), []) # Enterprise only! commit_author_email_pattern = optional(list(object({ operator = string pattern = string name = optional(string) negate = optional(bool) })), []) # Enterprise only! commit_message_pattern = optional(list(object({ operator = string pattern = string name = optional(string) negate = optional(bool) })), []) # Enterprise only! committer_email_pattern = optional(list(object({ operator = string pattern = string name = optional(string) negate = optional(bool) })), []) creation = optional(bool) deletion = optional(bool) non_fast_forward = optional(bool) pull_request = optional(list(object({ dismiss_stale_reviews_on_push = optional(bool) require_code_owner_review = optional(bool) require_last_push_approval = optional(bool) required_approving_review_count = optional(number) required_review_thread_resolution = optional(bool) })), []) required_linear_history = optional(bool) required_signatures = optional(bool) required_status_checks = optional(list(object({ required_check = list(object({ context = string integration_id = optional(number) })) strict_required_status_checks_policy = optional(bool) })), []) required_workflows = optional(list(object({ required_workflow = list(object({ repository_id = number path = string ref = optional(string) })) })), []) tag_name_pattern = optional(list(object({ operator = string pattern = string name = optional(string) negate = optional(bool) })), []) update = optional(bool) })) target = string bypass_actors = optional(list(object({ actor_id = number actor_type = string bypass_mode = optional(string) })), []) }))``` | n/a | yes |
+| organization_secrets | A map of organization secrets to create. The map key is the secret name. | ```map(object({ encrypted_value = optional(string) plaintext_value = optional(string) visibility = string selected_repository_ids = optional(list(string)) }))``` | `{}` | no |
+| organization_variables | n/a | ```map(object({ value = string visibility = string selected_repository_ids = optional(list(string)) }))``` | n/a | yes |
 | restricted_to_workflows | If true, the runner group will be restricted to running only the workflows specified in the selected_workflows array. Defaults to false. | `bool` | `null` | no |
 | runner_group_name | Name of the runner group | `string` | n/a | yes |
 | secret_scanning_enabled_for_new_repositories | Whether or not secret scanning is enabled for new repositories. Defaults to false. | `bool` | `null` | no |
