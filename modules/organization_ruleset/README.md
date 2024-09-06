@@ -1,15 +1,20 @@
+# github_organization_ruleset
+
 <!-- BEGIN_TF_DOCS -->
 <!-- prettier-ignore-start -->
 
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| terraform | >=1.3 |
+| github | >= 6.2.3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| github | n/a |
+| github | >= 6.2.3 |
 
 ## Modules
 
@@ -19,7 +24,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [github_organization_ruleset.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/organization_ruleset) | resource |
+| [github_organization_ruleset.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/organization_ruleset) | resource |
 
 ## Inputs
 
