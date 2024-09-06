@@ -225,6 +225,18 @@ variable "actions_runner_groups" {
   default     = {}
 }
 
+##################################
+# Organization actions variables #
+##################################
+
+variable "organization_variables" {
+  type = map(object({
+    value                   = string
+    visibility              = string
+    selected_repository_ids = optional(list(string))
+  }))
+}
+
 ################################
 # Organization actions secrets #
 ################################
@@ -238,4 +250,84 @@ variable "organization_secrets" {
     selected_repository_ids = optional(list(string))
   }))
   default = {}
+}
+
+#########################
+# Organization rulesets #
+#########################
+
+variable "organization_rulesets" {
+  description = "A map of organization rulesets to create. The map key is the name of the ruleset."
+  type = map(object({
+    enforcement = string
+    rules = list(object({
+      # Enterprise only! Use `conditions` block for matching branches.
+      branch_name_pattern = optional(list(object({
+        operator = string
+        pattern  = string
+        name     = optional(string)
+        negate   = optional(bool)
+      })), [])
+      # Enterprise only!
+      commit_author_email_pattern = optional(list(object({
+        operator = string
+        pattern  = string
+        name     = optional(string)
+        negate   = optional(bool)
+      })), [])
+      # Enterprise only!
+      commit_message_pattern = optional(list(object({
+        operator = string
+        pattern  = string
+        name     = optional(string)
+        negate   = optional(bool)
+      })), [])
+      # Enterprise only!
+      committer_email_pattern = optional(list(object({
+        operator = string
+        pattern  = string
+        name     = optional(string)
+        negate   = optional(bool)
+      })), [])
+      creation         = optional(bool)
+      deletion         = optional(bool)
+      non_fast_forward = optional(bool)
+      pull_request = optional(list(object({
+        dismiss_stale_reviews_on_push     = optional(bool)
+        require_code_owner_review         = optional(bool)
+        require_last_push_approval        = optional(bool)
+        required_approving_review_count   = optional(number)
+        required_review_thread_resolution = optional(bool)
+      })), [])
+      required_linear_history = optional(bool)
+      required_signatures     = optional(bool)
+      required_status_checks = optional(list(object({
+        required_check = list(object({
+          context        = string
+          integration_id = optional(number)
+        }))
+        strict_required_status_checks_policy = optional(bool)
+      })), [])
+      required_workflows = optional(list(object({
+        required_workflow = list(object({
+          repository_id = number
+          path          = string
+          ref           = optional(string)
+        }))
+      })), [])
+      tag_name_pattern = optional(list(object({
+        operator = string
+        pattern  = string
+        name     = optional(string)
+        negate   = optional(bool)
+      })), [])
+      update = optional(bool)
+    }))
+    target = string
+    bypass_actors = optional(list(object({
+      actor_id    = number
+      actor_type  = string
+      bypass_mode = optional(string)
+    })), [])
+  }))
 }

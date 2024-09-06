@@ -1,4 +1,4 @@
-# github_actions_organization_variable
+# github_organization_block
 
 <!-- BEGIN_TF_DOCS -->
 <!-- prettier-ignore-start -->
@@ -7,7 +7,7 @@
 
 | Name | Version |
 |------|---------|
-| terraform | >=1.3.0 |
+| terraform | >= 1.3.0 |
 | github | >= 6.2.3 |
 
 ## Providers
@@ -24,25 +24,19 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [github_actions_organization_variable.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_variable) | resource |
+| [github_organization_block.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/organization_block) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| selected_repository_ids | An array of repository ids that can access the organization secret. | `list(string)` | `null` | no |
-| value | Value of the variable. | `string` | n/a | yes |
-| variable_name | Name of the variable. | `string` | n/a | yes |
-| visibility | Configures the access that repositories have to the organization variable. Must be one of `all`, `private`, `selected`. | `string` | n/a | yes |
+| username | The name of the user to block. | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| created_at | n/a |
-| updated_at | n/a |
-| value | n/a |
-| variable_name | n/a |
+| blocked_user | n/a |
 
 
 ## Contributing
